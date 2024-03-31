@@ -58,10 +58,19 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
             <div id="step-next" class="step-button">Next</div>
     </div>
   </div>
-  <div id="chart"></div>
+  <div id="chart">
+    <div id="tooltip" class="hidden"></div>
+  </div>
 </div>
 <div class="footer">
-  <div>Created by <a href="https://ifcolorful.com/">Sarina Chen</a>.</div>
+  <div><strong>Methodology</strong></div>
+  <div>‣ Priority: Freeform responses were either grouped under the 5 existing options or a new option "Communication" was created. People who did not respond were put in "Unknown" - not "None" which corresponds to "I don't feel I need to improve my data visualization skills currently" - because they still provided data related to challenges and inspiration.</div>
+  <div>‣ Relative Impact Score: Average of the respondents' level of impact (encoding: "No Impact"=0.00, "Minor Impact"=0.33", "Moderate Impact"=0.67, "Significant Impact"=1.00). Blank responses were ignored. The maximum relative impact score is 1, but the visualization was scaled so that the challenge with the highest score would be the cap purely due to aesthetic choices.</div>
+  <div>‣ Inspirations: Freeform responses on resources and people were both programatically and manually cleaned to handle different sentence structures, fix typos, and consolidate name variants of the same entity. When creating the word cloud, all answers given by the respondents were considered.</div>
+  <br>
+  <div><strong>Credits</strong></div>
+  <div>Survey conducted by <a href="https://www.datavisualizationsociety.org/">Data Visualization Society</a>.</div>
+  <div>Data Visualization created by <a href="https://ifcolorful.com/">Sarina Chen</a>.</div>
 </div>
 
 
@@ -100,11 +109,6 @@ FileAttachment("./data/data.json").json().then((data) => {
     let gWordCloud = generateWordClouds(gBubblePriority);
 
     generateStepper();
-
-    let tooltip = svg
-      .append("div")
-        .classed("tooltip", true)
-        .classed("hidden", true);
 
 });
 ```

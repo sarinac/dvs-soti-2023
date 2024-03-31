@@ -43,7 +43,15 @@ let generateBarChallenge = (gBarChallenge) => {
             .startAngle(d => angleRadiansChallengeScale(d.challenge, -1, 1, 1))
             .endAngle(d => angleRadiansChallengeScale(d.challenge, 1, 1, 1))
         )
-        .attr("fill", d => colorChallengeScale(d.challenge));
+        .attr("fill", d => colorChallengeScale(d.challenge))
+        .on("mouseover", (e, d) => {
+            d3.select("#tooltip")
+                .classed("hidden", false)
+                .style("left", `${e.pageX-100}px`)
+                .style("top", `${e.pageY-100}px`)
+                .html(`<strong style="color:${colorChallengeScale(d.challenge)}">${CONSTANTS.challengesClean[d.challenge]}</strong> has a Relative Impact Score of <strong>${d.scoreAvg.toFixed(2)}</strong>.`);
+        })
+        .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
     return barChallenge;
 }
 
@@ -52,36 +60,10 @@ export let updateBarChallenge = () => {
         .transition().duration(CONSTANTS.transitionDuration)
         .attr("d", d3.arc()
             .innerRadius(0) 
-            .outerRadius(d => d.rScale(d.scoreAvg / d.scoreMaxAvg)) 
+            .outerRadius(d => d.rScale(d.scoreAvg / d.scoreMaxAvg))   // could do `d.rScale(d.scoreAvg)` but it looks prettier to scale it
             .startAngle(d => angleRadiansChallengeScale(d.challenge, -1, 1, 1))
             .endAngle(d => angleRadiansChallengeScale(d.challenge, 1, 1, 1))
-        )
-        // .attr("d", d => {
-        //     let radius = d.rScale(d.scoreAvg / d.scoreMaxAvg);
-        //     let startAngle = angleRadiansChallengeScale(d.challenge, -1, 1, 1);
-        //     let endAngle = angleRadiansChallengeScale(d.challenge, 1, 1, 1);
-        //     let current = [
-        //         "M0,0",
-        //         `L${radius*Math.cos(startAngle)},${radius*Math.sin(startAngle)}`,
-        //         `A${radius},${radius} 0 0 1 ${radius*Math.cos(endAngle)},${radius*Math.sin(endAngle)}`,
-        //         "Z"
-        //     ].join(" ");
-        //     console.log(current);
-        //     return current;
-        // });
-        // .attrTween("d", d => {
-        //     let previous = d3.select(`.bar-${d.challenge}-${d.n}`).attr("d");
-        //     let radius = d.rScale(d.scoreAvg / d.scoreMaxAvg);
-        //     let startAngle = angleRadiansChallengeScale(d.challenge, -1, 1, 1);
-        //     let endAngle = angleRadiansChallengeScale(d.challenge, 1, 1, 1);
-        //     let current = [
-        //         "M0,0",
-        //         `L${radius*Math.cos(startAngle)},${radius*Math.sin(startAngle)}`,
-        //         `A${radius},${radius} 0 0 1 ${radius*Math.cos(endAngle)},${radius*Math.sin(endAngle)}`,
-        //         "Z"
-        //     ].join(" ");
-        //     return d3.interpolate(previous, current);
-        // });
+        );
 }
 export let hideBarChallenge = () => {
     d3.selectAll(".bar-challenge-path")
@@ -97,6 +79,7 @@ export let hideBarChallenge = () => {
 
 export let generateBarChallenges = (gBubblePriority) => {
     let ggBubblePriority = gBubblePriority.append("g").classed("bar", true)
+        .style("display", "none")
         .attr("opacity", 0);  // Initialize as hidden
     let gChallenge = ggBubblePriority
         .selectAll("g.bar-challenge")

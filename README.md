@@ -1,4 +1,8 @@
-# Hello Framework
+# DVS SOTI 2023
+
+Data Visualization Society - State of the Industry - 2023.
+
+# Using Obserable Framework
 
 This is an [Observable Framework](https://observablehq.com/framework) project. To start the local preview server, run:
 
@@ -37,9 +41,6 @@ A typical Framework project looks like this:
 
 **`docs/data`** - You can put [data loaders](https://observablehq.com/framework/loaders) or static data files anywhere in your source root, but we recommend putting them here.
 
-**`docs/components`** - You can put shared [JavaScript modules](https://observablehq.com/framework/javascript/imports) anywhere in your source root, but we recommend putting them here. This helps you pull code out of Markdown files and into JavaScript modules, making it easier to reuse code across pages, write tests and run linters, and even share code with vanilla web applications.
-
-**`observablehq.config.js`** - This is the [project configuration](https://observablehq.com/framework/config) file, such as the pages and sections in the sidebar navigation, and the project’s title.
 
 ## Command reference
 

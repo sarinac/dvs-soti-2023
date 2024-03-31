@@ -53,6 +53,9 @@ export let generateStepper = () => {
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 0);
             hideBarChallenge();
+            d3.selectAll(".bar")
+                .transition().delay(CONSTANTS.transitionDuration)
+                .style("display", "none");
         }
         if(oldStepId==2){
             d3.selectAll(".axis, .line, .circle")
@@ -77,6 +80,7 @@ export let generateStepper = () => {
         }
         if(newStepId==1){
             d3.selectAll(".bar")
+                .style("display", "block")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 1);
             updateBarChallenge();

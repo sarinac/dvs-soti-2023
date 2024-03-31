@@ -1,3 +1,4 @@
+import * as d3 from "npm:d3";
 import { CONSTANTS } from "./constants.js";
 import { rBubbleScale, fontBubbleScale, fontBubbleScaleBottom } from "./scales.js";
 
@@ -58,13 +59,21 @@ let generateTextInner = (gBubblePriority) => {
             .text(d => d.n)
             .classed("respondents-number", true)
             .attr("y", 0)
-            .style("font-size", d => fontBubbleScale(d.n))
-            ;
+            .style("font-size", d => fontBubbleScale(d.n));
     gText.append("text")
         .text("Respondents")
             .classed("respondents-text", true)
             .attr("y", d => fontBubbleScaleBottom(d.n) > 15 ? 18 : 10)
-            .style("font-size", d => fontBubbleScaleBottom(d.n))
+            .style("font-size", d => fontBubbleScaleBottom(d.n));
+    gText 
+        .on("mouseover", (e, d) => {
+            d3.select("#tooltip")
+                .classed("hidden", false)
+                .style("left", `${e.pageX-100}px`)
+                .style("top", `${e.pageY-100}px`)
+                .html(`<strong>${d.n}</strong> people answered with "<strong>${d.priority}</strong>" as their next area of focus.`);
+        })
+        .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
     return gText;
 }
 

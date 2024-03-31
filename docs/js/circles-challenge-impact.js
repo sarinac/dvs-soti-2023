@@ -59,7 +59,17 @@ let generateCircle = (gChallengeImpact, impact) => {
         .style("stroke", "#ffffff")
         .attr("cy", 0)
         .attr("r", 5 )
-        .attr("fill", d => colorChallengeScale(d.challenge));
+        .attr("fill", d => colorChallengeScale(d.challenge))
+        // .on("mouseover", (e, d) => {
+        //     console.log(d);
+        //     d3.select("#tooltip")
+        //         .classed("hidden", false)
+        //         .style("left", `${e.pageX-100}px`)
+        //         .style("top", `${e.pageY-100}px`)
+        //         .html(`<strong style="color:${colorChallengeScale(d.challenge)}">${CONSTANTS.challengesClean[d.challenge]}</strong> 
+        //         has a Relative Impact Score of <strong>${impact}</strong>.`);
+        // })
+        // .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
     return g
 }
 

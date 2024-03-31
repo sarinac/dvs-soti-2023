@@ -1,5 +1,5 @@
 import * as d3 from "../../_npm/d3@7.9.0/+esm.js";
-import { CONSTANTS } from "./constants.5eea0e24.js";
+import { CONSTANTS } from "./constants.3f1b9e34.js";
 
 const interpolateCap = CONSTANTS.interpolateCap;
 
@@ -7,6 +7,18 @@ export let rBubbleScale = (n) => {
     return d3.scaleSqrt()
         .domain([0, 222]) // d3.max(data, d => d.n)
         .range([30, 120])
+        (n);
+};
+export let fontBubbleScale = (n) => {
+    return d3.scaleSqrt()
+        .domain([0, 222]) // d3.max(data, d => d.n)
+        .range([14, 60])
+        (n);
+};
+export let fontBubbleScaleBottom = (n) => {
+    return d3.scaleSqrt()
+        .domain([0, 222]) // d3.max(data, d => d.n)
+        .range([12, 20])
         (n);
 };
 

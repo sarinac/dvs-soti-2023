@@ -17,6 +17,21 @@ export const CONSTANTS = {
         "nonvizactivity": 12,
         "datavolume": 13
     },
+    challengesClean: {
+        "lacktime": "Lack of Time",
+        "lackdesignexpertise": "Lack of Design Skills",
+        "lacktechskill": "Lack of Tech Skills",
+        "learningnewtoolsetc": "Learning New Tools",
+        "accessingdata": "Accessing Data",
+        "infooverload": "Information Overload",
+        "lackcollaboration": "Lack of Collaboration",
+        "lackmentorship": "Lack of Mentorship",
+        "lowdataliteracy": "Low Data Literacy",
+        "dataviznotrespected": "Data Visualization Not Respected",
+        "toolstechlimits": "Technical Limits of Tools",
+        "nonvizactivity": "Non-Viz Activity",
+        "datavolume": "Data Volume"
+    },
     priorityPositions: {  // See simulation-scratchwork.js for how I did this
         "unknown": "translate(19.306462568067715,261.30389553765247)",
         "improving-my-design-skills": "translate(-86.8586074002201,-164.88935172234832)",
@@ -32,5 +47,6 @@ export const CONSTANTS = {
         "Moderate impact": 2, 
         "Significant impact": 3
     },
-    interpolateCap: 0.8
+    interpolateCap: 0.8,
+    transitionDuration: 800
 };

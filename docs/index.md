@@ -11,8 +11,8 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
 
 <div class="hero">
   <h1>Data Visualization Challenges and Inspiration</h1>
-  <p>The Data Visualization Society launched their annual <a href="https://www.datavisualizationsociety.org/soti-challenge-2023">State of the Industry survey</a> for 2023. One section of the survey asked people about their challenges faced during their data visualization practices and how much it affected their work. The following section asked people on how they look ahead by understanding where they want to improve next and where they find inspiration.</p>
-  <p>Explore the different stages of the respondents' data visualization journeys. The interactive chart below will walk you through the respondents' next area of focus, then the common challenges experienced so far, and finally the recommended resources they provided to help others similar to them in the community.
+  <p>The Data Visualization Society launched their annual <a href="https://www.datavisualizationsociety.org/soti-challenge-2023">State of the Industry survey</a> for 2023. The survey asked people about challenges they faced while visualizing data and how much it affected their work. It also asked where they wanted to improve and where they found inspiration.</p>
+  <p>Explore the different stages of the respondents' data visualization journeys. The interactive chart walks you through the respondents' next area of focus, the challenges they faced, and their sources of inspiration. Hover over the chart elements to see more details.
   </p>
 </div>
 
@@ -20,9 +20,9 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
   <div class="text-description-container">
     <div id="stepper-container">
       <div class="text-description annotation-step" id="annotation-step-0">
-                <h1>What Is The Distribution of Priorities For Respondents?</h1>
+                <h1>What Area Of Focus Do Respondents Want To Focus On Next?</h1>
                 <p>
-                    Each bubble represents a unique area of focus that the respondent wants to pursue next. The size is based on the number of respondents.
+                    Each bubble represents a unique area of focus<sup>1</sup> that the respondent wants to pursue next. The size is based on the number of respondents.
                 </p>
                 <p>
                     Within each bubble, there will be data for each of the 14 challenges asked in the survey. Each challenge is positioned radially and takes up a slice in their bubble. Click <span style="font-family: 'Patrick Hand SC', sans-serif; color: var(--color-dark-red); font-weight: bold;">Next</span> to proceed.
@@ -31,19 +31,23 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
       <div class="text-description annotation-step" id="annotation-step-1">
                 <h1>How Much Does Each Challenge Affect Respondents In Their Data Visualization Work?</h1>
                 <p>
-                    Each bar with a corresponding color within a bubble represents a challenge. The height of each bar is based on their relative impact score. The larger the bar, the more affected the respondents are by that challenge.
+                    Each bar has a corresponding color which represents a challenge. The height of each bar is based
+                    on its relative impact score<sup>2</sup>. The larger the bar, the greater the impact respondents felt by that challenge. 
                 </p>
+                <p>Hover over the bars to see the relative impact scores.</p>
       </div>
       <div class="text-description annotation-step" id="annotation-step-2">
-                <h1>What % Of Respondents Are Affected By Each Level Of Impact Of Challenges?</h1>
+                <h1>What Is The Distribution Of Impact For Each Challenge?</h1>
                 <p>
-                    Sometimes understanding relative impact as a single number does not provide enough detail. Some respondents could be completely unaffected while others could be on the oppositie spectrum, entirely bogged down by it. This is the disitribution of each challenges' level of impact. You can see the percentage of respondents for each level.
+                    Sometimes understanding relative impact as a single number does not provide enough detail. Some respondents could be completely unaffected while others could be on the oppositie spectrum, entirely bogged down by it. 
                 </p>
+                <p>Hover over the circles and spaces between to see who responded with what.</p>
         </div>
         <div class="text-description annotation-step" id="annotation-step-3">
-                <h1>Who Or What Do Respondents Recommend To Get Inspiration?</h1>
+                <h1>What Resources Do Respondents Recommend To Get Inspiration?</h1>
                 <p>
-                    The "Looking Ahead" section of the survey asked how respondents find inspiration through a freeform textbox for naming people and resources. The word clouds show the most common sources grouped by areas of priority.
+                    When asked about sources of inspiration, respondents named various people and resources<sup>3</sup>. 
+                    The word clouds show the most common sources grouped by areas of priority.
                 </p>
         </div>
     </div>
@@ -69,9 +73,9 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
     <img src="img/legend-variable-3.svg" alt="Legend for (3) Recommendations" style="height: 350px;"/>
   </div>
   <div><strong>Methodology</strong></div>
-  <div>‣ Priority: Freeform responses were either grouped under the 5 existing options or a new option "Communication" was created. People who did not respond were put in "Unknown" - not "None" which corresponds to "I don't feel I need to improve my data visualization skills currently" - because they still provided data related to challenges and inspiration.</div>
-  <div>‣ Relative Impact Score: Average of the respondents' level of impact (encoding: "No Impact"=0.00, "Minor Impact"=0.33", "Moderate Impact"=0.67, "Significant Impact"=1.00). Blank responses were ignored. The maximum relative impact score is 1, but the visualization was scaled so that the challenge with the highest score would be the cap purely due to aesthetic choices.</div>
-  <div>‣ Inspirations: Freeform responses on resources and people were both programatically and manually cleaned to handle different sentence structures, fix typos, and consolidate name variants of the same entity. When creating the word cloud, all answers given by the respondents were considered.</div>
+  <div><sup>1</sup>Priority: Freeform responses were either grouped under the 5 existing options or a new option "Communication" was created. People who did not respond were put in "Unknown". People who answered "I don't feel I need to improve my data visualization skills currently" were put in "None".</div>
+  <div><sup>2</sup>Relative Impact Score: Average of the respondents' level of impact (encoding: "No Impact"=0.00, "Minor Impact"=0.33", "Moderate Impact"=0.67, "Significant Impact"=1.00). Blank responses were ignored. The maximum relative impact score is 1, but the visualization was scaled so that the challenge with the highest score would be the cap purely due to aesthetic choices.</div>
+  <div><sup>3</sup>Inspirations: Freeform responses on resources and people were both programatically and manually cleaned to handle different sentence structures, fix typos, and consolidate name variants of the same entity. When creating the word cloud, all answers given by the respondents were considered.</div>
   <br>
   <div><strong>Credits</strong></div>
   <div>Survey conducted by <a href="https://www.datavisualizationsociety.org/">Data Visualization Society</a>.</div>

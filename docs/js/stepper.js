@@ -61,9 +61,12 @@ export let generateStepper = () => {
                 .style("display", "none");
         }
         if(oldStepId==2){
-            d3.selectAll(".axis, .line, .circle")
+            d3.selectAll(".axis, .line, .circle, .area")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 0);
+            d3.selectAll(".axis, .line, .circle, .area")
+                .transition().duration(CONSTANTS.transitionDuration)
+                .style("display", "none");
             hideCircleChallengeImpact();
             hideLineChallengeImpact();
         }
@@ -90,7 +93,8 @@ export let generateStepper = () => {
             updateBarChallenge();
         }
         if(newStepId==2){
-            d3.selectAll(".axis, .line, .circle")
+            d3.selectAll(".axis, .line, .circle, .area")
+                .style("display", "block")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 1);
             updateCircleChallengeImpact();

@@ -83,6 +83,7 @@ let generateCircle = (gChallengeImpact, impact) => {
 
 export let generateCircleChallengeImpact = (gBubblePriority) => {
     let ggBubblePriority = gBubblePriority.append("g").classed("circle", true)
+        .style("display", "none")
         .attr("opacity", 0);  // Initialize as hidden
     let gChallengeImpact = ggBubblePriority
         .selectAll("g.circle-impact")

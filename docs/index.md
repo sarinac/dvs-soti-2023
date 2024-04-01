@@ -1,5 +1,5 @@
 ---
-title: Sarina Soti 2023
+title: Data Visualization Challenges and Inspirations
 toc: false
 style: custom.css
 ---
@@ -10,7 +10,7 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
 ```
 
 <div class="hero">
-  <h1>Data Visualization Challenges and Inspiration</h1>
+  <h1>Data Visualization Challenges and Inspirations</h1>
   <p>The Data Visualization Society launched their annual <a href="https://www.datavisualizationsociety.org/soti-challenge-2023">State of the Industry survey</a> for 2023. The survey asked people about challenges they faced while visualizing data and how much it affected their work. It also asked where they wanted to improve and where they found inspiration.</p>
   <p>Explore the different stages of the respondents' data visualization journeys. The interactive chart walks you through the respondents' next area of focus, the challenges they faced, and their sources of inspiration. Hover over the chart elements to see more details.
   </p>

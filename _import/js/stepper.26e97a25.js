@@ -1,8 +1,8 @@
 import * as d3 from "../../_npm/d3@7.9.0/+esm.js";
 import { CONSTANTS } from "./constants.3f1b9e34.js";
-import { updateBarChallenge, hideBarChallenge } from "./bars-challenge.984735f2.js";
-import { updateCircleChallengeImpact, hideCircleChallengeImpact } from "./circles-challenge-impact.b29df484.js";
-import { updateLineChallengeImpact, hideLineChallengeImpact } from "./lines-challenge-impact.ff84ba2f.js";
+import { updateBarChallenge, hideBarChallenge } from "./bars-challenge.2e3b7d9a.js";
+import { updateCircleChallengeImpact, hideCircleChallengeImpact } from "./circles-challenge-impact.ce81e88c.js";
+import { updateLineChallengeImpact, hideLineChallengeImpact } from "./lines-challenge-impact.471e4eaf.js";
 
 export let generateStepper = () => {
     var stepState = 0;
@@ -47,6 +47,9 @@ export let generateStepper = () => {
             d3.selectAll(".respondents")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 0);
+            d3.selectAll(".respondents")
+                .transition().delay(CONSTANTS.transitionDuration)
+                .style("display", "none");
         }
         if(oldStepId==1){
             d3.selectAll(".bar")
@@ -58,9 +61,12 @@ export let generateStepper = () => {
                 .style("display", "none");
         }
         if(oldStepId==2){
-            d3.selectAll(".axis, .line, .circle")
+            d3.selectAll(".axis, .line, .circle, .area")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 0);
+            d3.selectAll(".axis, .line, .circle, .area")
+                .transition().duration(CONSTANTS.transitionDuration)
+                .style("display", "none");
             hideCircleChallengeImpact();
             hideLineChallengeImpact();
         }
@@ -75,6 +81,7 @@ export let generateStepper = () => {
         // Reveal
         if(newStepId==0){
             d3.selectAll(".respondents")
+                .style("display", "block")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 1);
         }
@@ -86,7 +93,8 @@ export let generateStepper = () => {
             updateBarChallenge();
         }
         if(newStepId==2){
-            d3.selectAll(".axis, .line, .circle")
+            d3.selectAll(".axis, .line, .circle, .area")
+                .style("display", "block")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 1);
             updateCircleChallengeImpact();

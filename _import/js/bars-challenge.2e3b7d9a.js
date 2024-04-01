@@ -47,7 +47,7 @@ let generateBarChallenge = (gBarChallenge) => {
         .on("mouseover", (e, d) => {
             d3.select("#tooltip")
                 .classed("hidden", false)
-                .style("left", `${e.pageX-100}px`)
+                .style("left", `${e.layerX+50}px`)
                 .style("top", `${e.pageY-100}px`)
                 .html(`<strong style="color:${colorChallengeScale(d.challenge)}">${CONSTANTS.challengesClean[d.challenge]}</strong> has a Relative Impact Score of <strong>${d.scoreAvg.toFixed(2)}</strong>.`);
         })

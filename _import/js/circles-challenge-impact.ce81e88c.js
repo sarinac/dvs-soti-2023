@@ -28,7 +28,12 @@ let calculateData = (d) => {
             "category": element[2],
             "scoreCount": element[3],
             "scoreTotalCount": scoreTotalCountByChallenge.get(element[0]),
-            // "rScale": d3.scaleLinear().domain([0, 1]).range([0, rBubbleScale(element[1])]),
+            "scoreCumulativeCount": (
+                (["No impact", "Minor impact", "Moderate impact", "Significant impact"].includes(element[2])   ? (scoreCountByChallengeCategory.get(element[0]).get("No impact") ?? 0) : 0)
+                + (["Minor impact", "Moderate impact", "Significant impact"].includes(element[2])   ? (scoreCountByChallengeCategory.get(element[0]).get("Minor impact") ?? 0) : 0)
+                + (["Moderate impact", "Significant impact"].includes(element[2])                   ? (scoreCountByChallengeCategory.get(element[0]).get("Moderate impact") ?? 0) : 0)
+                + (["Significant impact"].includes(element[2])                                   ? (scoreCountByChallengeCategory.get(element[0]).get("Significant impact") ?? 0) : 0)
+            ),
             "cY": d3.scaleLinear()
                 .domain([0, 1])
                 .range([0, rBubbleScale(element[1])])(
@@ -60,21 +65,25 @@ let generateCircle = (gChallengeImpact, impact) => {
         .attr("cy", 0)
         .attr("r", 5 )
         .attr("fill", d => colorChallengeScale(d.challenge))
-        // .on("mouseover", (e, d) => {
-        //     console.log(d);
-        //     d3.select("#tooltip")
-        //         .classed("hidden", false)
-        //         .style("left", `${e.pageX-100}px`)
-        //         .style("top", `${e.pageY-100}px`)
-        //         .html(`<strong style="color:${colorChallengeScale(d.challenge)}">${CONSTANTS.challengesClean[d.challenge]}</strong> 
-        //         has a Relative Impact Score of <strong>${impact}</strong>.`);
-        // })
-        // .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
+        .on("mouseover", (e, d) => {
+            d3.select("#tooltip")
+                .classed("hidden", false)
+                .style("left", `${e.layerX+50}px`)
+                .style("top", `${e.pageY-100}px`)
+                .html(`<strong>${(d.scoreCumulativeCount/d.scoreTotalCount*100).toFixed(0)}th Percentile: </strong> 
+                ${d.scoreCumulativeCount} of ${d.scoreTotalCount} Respondents feeling up to ${impact}.
+                <br><br><strong>${(d.scoreCount/d.scoreTotalCount*100).toFixed(1)}%</strong> (${d.scoreCount} of ${d.scoreTotalCount}) 
+                feel that
+                <strong style="color:${colorChallengeScale(d.challenge)}">${CONSTANTS.challengesClean[d.challenge]}</strong> 
+                has a <strong>${impact}</strong> on their data visualization practice.`);
+        })
+        .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
     return g
 }
 
 export let generateCircleChallengeImpact = (gBubblePriority) => {
     let ggBubblePriority = gBubblePriority.append("g").classed("circle", true)
+        .style("display", "none")
         .attr("opacity", 0);  // Initialize as hidden
     let gChallengeImpact = ggBubblePriority
         .selectAll("g.circle-impact")

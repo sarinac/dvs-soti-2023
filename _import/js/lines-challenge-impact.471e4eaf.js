@@ -101,29 +101,31 @@ export let generateAreaChallengeImpact = (gBubblePriority) => {
         area  
             .attr("fill", "#ffffff")
             .attr("opacity", 0)  // Only for initializing so bar chart doesn't look cut off
-            .on("mouseover", d => {
-                let priority = d.srcElement.__data__.n;
-                let impact = d.srcElement.__data__.category;
+            .on("mouseover", (e, d) => {
                 // Color this in
-                d3.selectAll(`.area-impact.impact-curve-path-${priority}-${impact.slice(0, -7).toLowerCase()}`)
+                d3.selectAll(`.area-impact.impact-curve-path-${d.n}-${d.category.slice(0, -7).toLowerCase()}`)
                     .attr("opacity", 0.2)
                     .attr("fill", "#ec6143");
                 // Make all the other ones white
                 ["Significant impact", "Moderate impact", "Minor impact", "No impact"].forEach(i => {
-                    if(i!=impact){
-                        d3.selectAll(`.area-impact.impact-curve-path-${priority}-${i.slice(0, -7).toLowerCase()}`)
+                    if(i!=d.category){
+                        d3.selectAll(`.area-impact.impact-curve-path-${d.n}-${i.slice(0, -7).toLowerCase()}`)
                             .attr("opacity", 1)
                             .attr("fill", "#ffffff");
                     }
                 })
+                d3.select("#tooltip")
+                    .classed("hidden", false)
+                    .style("left", `${e.layerX+50}px`)
+                    .style("top", `${e.pageY-100}px`)
+                    .html(`This area represents the % of Respondents feeling that their challenges have <strong>${d.category}</strong> on their Data Visualization practices.`);
             })
-            .on("mouseout", d => {
-                let priority = d.srcElement.__data__.n;
-                let impact = d.srcElement.__data__.category;
-                d3.selectAll(`.area-impact.impact-curve-path-${priority}-${impact.slice(0, -7).toLowerCase()}`)
+            .on("mouseout", (e, d) => {
+                d3.selectAll(`.area-impact.impact-curve-path-${d.n}-${d.category.slice(0, -7).toLowerCase()}`)
                     .transition().duration(CONSTANTS.hoverDuration)
                     .attr("opacity", 1)
                     .attr("fill", "#ffffff");
+                d3.select("#tooltip").classed("hidden", true);
             });
     })
     return ggBubblePriority;

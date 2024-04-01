@@ -67,11 +67,15 @@ let generateTextInner = (gBubblePriority) => {
             .style("font-size", d => fontBubbleScaleBottom(d.n));
     gText 
         .on("mouseover", (e, d) => {
+            let text = `<strong>${d.n}</strong> people answered with "<strong>${d.priority}</strong>" as their next area of focus.`;
+            if(d.priority==="Unknown"){
+                text = `<strong>${d.n}</strong> people did not respond with their next area of focus.`;
+            }
             d3.select("#tooltip")
                 .classed("hidden", false)
-                .style("left", `${e.pageX-100}px`)
+                .style("left", `${e.layerX+50}px`)
                 .style("top", `${e.pageY-100}px`)
-                .html(`<strong>${d.n}</strong> people answered with "<strong>${d.priority}</strong>" as their next area of focus.`);
+                .html(text);
         })
         .on("mouseout", () => {d3.select("#tooltip").classed("hidden", true)});
     return gText;

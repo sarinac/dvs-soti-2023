@@ -25,7 +25,7 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
                     Each bubble represents a unique area of focus that the respondent wants to pursue next. The size is based on the number of respondents.
                 </p>
                 <p>
-                    Within each bubble, there will be data for each of the 14 challenges asked in the survey. Each challenge is positioned radially and takes up a slice in their bubble. Click "Next" to proceed.
+                    Within each bubble, there will be data for each of the 14 challenges asked in the survey. Each challenge is positioned radially and takes up a slice in their bubble. Click <span style="font-family: 'Patrick Hand SC', sans-serif; color: var(--color-dark-red); font-weight: bold;">Next</span> to proceed.
                 </p>
       </div>
       <div class="text-description annotation-step" id="annotation-step-1">
@@ -43,7 +43,7 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
         <div class="text-description annotation-step" id="annotation-step-3">
                 <h1>Who Or What Do Respondents Recommend To Get Inspiration?</h1>
                 <p>
-                    Lhjkh
+                    The "Looking Ahead" section of the survey asked how respondents find inspiration through a freeform textbox for naming people and resources. The word clouds show the most common sources grouped by areas of priority.
                 </p>
         </div>
     </div>
@@ -63,6 +63,11 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
   </div>
 </div>
 <div class="footer">
+  <div><strong>Data Visualization Encodings</strong></div>
+  <div style="flex-direction: row; display: flex; max-height: 400px; width: 600px; align-items: flex-start;">
+    <img src="img/legend-base.svg" alt="Legend for Priority and Challenges" style="height: 350px;"/>
+    <img src="img/legend-variable-3.svg" alt="Legend for (3) Recommendations" style="height: 350px;"/>
+  </div>
   <div><strong>Methodology</strong></div>
   <div>‣ Priority: Freeform responses were either grouped under the 5 existing options or a new option "Communication" was created. People who did not respond were put in "Unknown" - not "None" which corresponds to "I don't feel I need to improve my data visualization skills currently" - because they still provided data related to challenges and inspiration.</div>
   <div>‣ Relative Impact Score: Average of the respondents' level of impact (encoding: "No Impact"=0.00, "Minor Impact"=0.33", "Moderate Impact"=0.67, "Significant Impact"=1.00). Blank responses were ignored. The maximum relative impact score is 1, but the visualization was scaled so that the challenge with the highest score would be the cap purely due to aesthetic choices.</div>
@@ -95,7 +100,7 @@ let svg = d3
 
 FileAttachment("./data/data.json").json().then((data) => {
 
-    console.log(data);
+    // console.log(data);
 
     let gBubblePriority = generateCirclePriority(data, svg);
 

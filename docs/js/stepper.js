@@ -47,6 +47,9 @@ export let generateStepper = () => {
             d3.selectAll(".respondents")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 0);
+            d3.selectAll(".respondents")
+                .transition().delay(CONSTANTS.transitionDuration)
+                .style("display", "none");
         }
         if(oldStepId==1){
             d3.selectAll(".bar")
@@ -75,6 +78,7 @@ export let generateStepper = () => {
         // Reveal
         if(newStepId==0){
             d3.selectAll(".respondents")
+                .style("display", "block")
                 .transition().duration(CONSTANTS.transitionDuration)
                 .attr("opacity", 1);
         }

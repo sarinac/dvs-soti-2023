@@ -69,8 +69,8 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
 <div class="footer">
   <div><strong>Data Visualization Encodings</strong></div>
   <div style="flex-direction: row; display: flex; max-height: 400px; width: 600px; align-items: flex-start;">
-    <img src="img/legend-base.svg" alt="Legend for Priority and Challenges" style="height: 350px;"/>
-    <img src="img/legend-variable-3.svg" alt="Legend for (3) Recommendations" style="height: 350px;"/>
+    <img src="img/legend-base.png" alt="Legend for Priority and Challenges" style="height: 350px;"/>
+    <img src="img/legend-variable-3.png" alt="Legend for (3) Recommendations" style="height: 350px;"/>
   </div>
   <div><strong>Methodology</strong></div>
   <div><sup>1</sup>Priority: Freeform responses were either grouped under the 5 existing options or a new option "Communication" was created. People who did not respond were put in "Unknown". People who answered "I don't feel I need to improve my data visualization skills currently" were put in "None".</div>

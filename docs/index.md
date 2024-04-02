@@ -52,10 +52,10 @@ import { FileAttachment } from "npm:@observablehq/stdlib";
         </div>
     </div>
     <div class="legend-container">
-        <img id="legend-step-0" class="legend-step" src="img/legend-base.svg" alt="Legend for Priority and Challenges" />
-        <img id="legend-step-1" class="legend-step" src="img/legend-variable-1.svg" alt="Legend for (1) Challenges" />
-        <img id="legend-step-2" class="legend-step" src="img/legend-variable-2.svg" alt="Legend for (2) Challenge Distributions" />
-        <img id="legend-step-3" class="legend-step" src="img/legend-variable-3.svg" alt="Legend for (3) Recommendations" />
+        <img id="legend-step-0" class="legend-step" src="img/legend-base.png" alt="Legend for Priority and Challenges" />
+        <img id="legend-step-1" class="legend-step" src="img/legend-variable-1.png" alt="Legend for (1) Challenges" />
+        <img id="legend-step-2" class="legend-step" src="img/legend-variable-2.png" alt="Legend for (2) Challenge Distributions" />
+        <img id="legend-step-3" class="legend-step" src="img/legend-variable-3.png" alt="Legend for (3) Recommendations" />
     </div>
     <div id="stepper-nav">
             <div id="step-back" class="step-button">Back</div>

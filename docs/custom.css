@@ -50,6 +50,10 @@ li {
     font-size: 18px;
 }
 
+img {
+    max-width: 412px;
+}
+
 /* ----------------- SVG ----------------- */
 
 .bubble-priority {

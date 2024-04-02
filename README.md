@@ -52,3 +52,18 @@ A typical Framework project looks like this:
 | `npm run deploy`     | Deploy your project to Observable                        |
 | `npm run clean`      | Clear the local data loader cache                        |
 | `npm run observable` | Run commands like `observable help`                      |
+
+
+## Deploy to GitHub Pages
+
+```
+npm run build
+mv dist ../
+git checkout public
+rm -rf *
+mv ../dist/* .
+git add .
+git commit -m “push build files”
+git push origin public
+git checkout main
+```

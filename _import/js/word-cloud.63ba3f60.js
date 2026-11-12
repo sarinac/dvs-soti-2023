@@ -1,8 +1,7 @@
 import * as d3 from "../../_npm/d3@7.9.0/+esm.js";
 import { CONSTANTS } from "./constants.3f1b9e34.js";
 import { rBubbleScale } from "./scales.f9ad98ee.js";
-import {require} from "../../_npm/d3-require@1.3.0/+esm.js";
-const cloud = await require("d3-cloud");
+import cloud from "../../_npm/d3-cloud@1.2.7/+esm.js";
 
 let generateWordsList = (data) => {
     let dedupeWords = {};
